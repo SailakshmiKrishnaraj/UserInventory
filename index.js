@@ -1,22 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
- import { createHashHistory } from 'history';
-import { HashRouter } from 'react-router-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './State';
-const root = ReactDOM.createRoot(document.getElementById('root'));
- const basename = process.env.PUBLIC_URL;
- const history = createHashHistory({ basename });
-root.render(
-<Provider store={store}> <HashRouter history={history}> <App history={history}/></HashRouter>  </Provider>
-  
-  
-);
+import { userConstants } from "../Main Content/Constants/userConstants";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export function setTableData(data) {
+    return { type: userConstants.USERCREDENTIALS.SET_DATA, payload: { data } };
+}
+
+export function EditData(data) {
+    return { type: userConstants.USERCREDENTIALS.EDIT_DATA, payload: { data } };
+}
+export function showDataPopup() {
+    return { type: userConstants.USERCREDENTIALS.SHOW };
+}
+export function hidePopup() {
+    return { type: userConstants.USERCREDENTIALS.HIDE };
+}
+export function viewDataPopup(data){
+    debugger;
+    return {type:userConstants.USERCREDENTIALS.VIEW_DATA,payload: {data}}
+}
